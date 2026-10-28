@@ -1,6 +1,5 @@
-import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Heart, Sparkles, Volume2 } from "lucide-react";
+import { Sparkles, Volume2 } from "lucide-react";
 
 interface InvitationEnvelopeProps {
   onOpen: () => void;
@@ -8,26 +7,14 @@ interface InvitationEnvelopeProps {
 }
 
 export const InvitationEnvelope = ({ onOpen, isOpen }: InvitationEnvelopeProps) => {
-  const [isAnimating, setIsAnimating] = useState(false);
-
-  const handleOpen = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    // Allow animation to unfold smoothly before signaling parent
-    setTimeout(() => {
-      onOpen();
-    }, 1200);
-  };
-
-  if (isOpen) return null;
-
   return (
     <AnimatePresence>
+      {!isOpen && (
       <motion.div
         className="fixed inset-0 z-50 flex items-center justify-center bg-[#0d1d18]/95 backdrop-blur-xl p-4 overflow-hidden select-none"
         initial={{ opacity: 1 }}
-        exit={{ opacity: 0, scale: 1.05 }}
-        transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.25, ease: "easeOut" }}
       >
         {/* Ambient subtle warm gold particles / glow */}
         <div className="absolute inset-0 pointer-events-none">
@@ -58,7 +45,7 @@ export const InvitationEnvelope = ({ onOpen, isOpen }: InvitationEnvelopeProps) 
             {/* Top Text / Monogram */}
             <motion.div
               className="relative z-10 pt-2"
-              animate={isAnimating ? { y: -20, opacity: 0 } : { y: 0, opacity: 1 }}
+              animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5 }}
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#d4af37]/35 bg-[#102922]/80 mb-3">
@@ -75,7 +62,7 @@ export const InvitationEnvelope = ({ onOpen, isOpen }: InvitationEnvelopeProps) 
             {/* Center: Couple Names & Song Hy Crest */}
             <motion.div
               className="relative z-10 my-auto py-4 flex flex-col items-center"
-              animate={isAnimating ? { scale: 0.95, opacity: 0 } : { scale: 1, opacity: 1 }}
+              animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5 }}
             >
               <h1 className="font-display text-4xl sm:text-5xl text-[#fbf8f1] font-normal tracking-wide leading-tight">
@@ -105,12 +92,12 @@ export const InvitationEnvelope = ({ onOpen, isOpen }: InvitationEnvelopeProps) 
             {/* Bottom: Wax Seal & Action Button */}
             <motion.div
               className="relative z-20 pb-2 flex flex-col items-center gap-3 w-full"
-              animate={isAnimating ? { y: 20, opacity: 0 } : { y: 0, opacity: 1 }}
+              animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5 }}
             >
               {/* Golden Wax Seal */}
               <motion.button
-                onClick={handleOpen}
+                onClick={onOpen}
                 whileHover={{ scale: 1.08 }}
                 whileTap={{ scale: 0.95 }}
                 className="group relative flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-[#dfbd77] via-[#c59e4e] to-[#9b7637] shadow-[0_10px_30px_rgba(212,175,55,0.45)] border-2 border-[#fff3cf] cursor-pointer"
@@ -137,19 +124,10 @@ export const InvitationEnvelope = ({ onOpen, isOpen }: InvitationEnvelopeProps) 
               </div>
             </motion.div>
 
-            {/* Unfolding animation layers */}
-            {isAnimating && (
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-b from-[#dfbd77] to-[#c59e4e] z-30"
-                initial={{ opacity: 0, scaleY: 0 }}
-                animate={{ opacity: 1, scaleY: 1 }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                style={{ originY: 1 }}
-              />
-            )}
           </div>
         </motion.div>
       </motion.div>
+      )}
     </AnimatePresence>
   );
 };
