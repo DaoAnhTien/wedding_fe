@@ -113,7 +113,7 @@ function Lightbox({
             <img
               src={current.src}
               alt={current.alt}
-              className="max-w-full max-h-[72vh] object-contain rounded-xl shadow-2xl border border-white/10"
+              className="max-w-full max-h-[72vh] object-contain rounded-xl shadow-2xl"
             />
             <div className="mt-4 text-center">
               <p className="text-white font-display text-xl sm:text-2xl font-normal drop-shadow">
@@ -235,7 +235,7 @@ const GallerySection = () => {
 
           {/* 3D Coverflow Stage */}
           <div
-            className="relative w-full h-[430px] sm:h-[500px] md:h-[560px] flex items-center justify-center overflow-visible"
+            className="relative w-full h-[750px] sm:h-[880px] md:h-[1000px] flex items-center justify-center overflow-visible"
             style={{ perspective: 1200 }}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
@@ -269,48 +269,48 @@ const GallerySection = () => {
                 if (!isVisible) return null;
 
                 // 3D Coverflow transforms
-                let xTranslate = 0;
+                let xTranslate = "0%";
                 let rotateY = 0;
                 let scale = 1;
                 let opacity = 1;
                 let zIndex = 30;
 
                 if (isCenter) {
-                  xTranslate = 0;
+                  xTranslate = "0%";
                   rotateY = 0;
                   scale = 1;
                   opacity = 1;
                   zIndex = 30;
                 } else if (offset === 1) {
-                  xTranslate = 200; // px right
-                  rotateY = -42; // turn left facing center
-                  scale = 0.82;
-                  opacity = 0.65;
+                  xTranslate = "60%";
+                  rotateY = -18;
+                  scale = 0.9;
+                  opacity = 0.85;
                   zIndex = 20;
                 } else if (offset === -1) {
-                  xTranslate = -200; // px left
-                  rotateY = 42; // turn right facing center
-                  scale = 0.82;
-                  opacity = 0.65;
+                  xTranslate = "-60%";
+                  rotateY = 18;
+                  scale = 0.9;
+                  opacity = 0.85;
                   zIndex = 20;
                 } else if (offset === 2) {
-                  xTranslate = 330;
-                  rotateY = -55;
-                  scale = 0.68;
-                  opacity = 0.35;
+                  xTranslate = "102%";
+                  rotateY = -28;
+                  scale = 0.8;
+                  opacity = 0.6;
                   zIndex = 10;
                 } else if (offset === -2) {
-                  xTranslate = -330;
-                  rotateY = 55;
-                  scale = 0.68;
-                  opacity = 0.35;
+                  xTranslate = "-102%";
+                  rotateY = 28;
+                  scale = 0.8;
+                  opacity = 0.6;
                   zIndex = 10;
                 }
 
                 return (
                   <motion.div
                     key={index}
-                    className="absolute cursor-pointer"
+                    className="absolute cursor-pointer w-[min(300px,calc(100vw-48px))] sm:w-[380px] md:w-[440px] h-[640px] sm:h-[747px] md:h-[854px]"
                     animate={{
                       x: xTranslate,
                       scale,
@@ -335,9 +335,9 @@ const GallerySection = () => {
                   >
                     {/* Card Body */}
                     <div
-                      className={`relative w-[240px] sm:w-[280px] md:w-[320px] aspect-[3/4] rounded-2xl sm:rounded-3xl overflow-hidden border-2 transition-all duration-500 bg-card ${isCenter
-                        ? "border-[#d4af37] shadow-[0_20px_50px_rgba(0,0,0,0.35)]"
-                        : "border-[#d4af37]/30 shadow-lg hover:border-[#d4af37]/60"
+                      className={`relative w-full h-full rounded-2xl overflow-hidden transition-all duration-500 bg-card ${isCenter
+                        ? "shadow-[0_20px_50px_rgba(0,0,0,0.35)]"
+                        : "shadow-lg"
                         }`}
                     >
                       {/* Photo with top alignment to preserve faces */}
@@ -347,9 +347,6 @@ const GallerySection = () => {
                         loading="lazy"
                         className="w-full h-full object-cover object-[center_10%]"
                       />
-
-                      {/* Golden Inner Hairline */}
-                      <div className="pointer-events-none absolute inset-2 rounded-xl sm:rounded-2xl border border-white/20" />
 
                       {/* Center Card Vignette & Caption */}
                       {isCenter && (

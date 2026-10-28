@@ -1,4 +1,4 @@
-const baseUrl = (import.meta.env.VITE_API_URL || '/api').replace(/\/$/, '');
+const baseUrl = 'https://wedding-inv9.onrender.com/api';
 
 export interface Wish {
   id: number;

@@ -12,7 +12,14 @@ cd FE
 npm run dev
 ```
 
-Node.js >= 22.13. FE chạy tại http://localhost:5173, proxy `/api` tới backend port 3001. Cấu hình production và lưu dữ liệu: [BE/RUNNING.md](../BE/RUNNING.md). Dữ liệu Supabase cũ cần export để chuyển riêng nếu muốn giữ.
+Node.js >= 22.13. FE chạy tại http://localhost:5173 và gọi API Render cấu hình trong `src/lib/api.ts`. Cấu hình backend và lưu dữ liệu: [BE/RUNNING.md](../BE/RUNNING.md). Dữ liệu Supabase cũ cần export để chuyển riêng nếu muốn giữ.
+
+## Deploy frontend
+
+- Build bằng `npm ci && npm run build`, publish thư mục `dist`.
+- URL API được gắn trực tiếp trong `src/lib/api.ts`: `https://wedding-inv9.onrender.com/api`, không cần cấu hình biến môi trường frontend. Thay đổi URL trong file này rồi build/deploy lại khi chuyển backend.
+- Trên backend Render, đặt `CORS_ORIGINS` gồm chính xác origin frontend (giao thức và domain, không có dấu `/` cuối), ví dụ `https://your-site.vercel.app`. Nhiều origin phân cách bằng dấu phẩy. Sau đó redeploy backend.
+- Kiểm tra `https://wedding-inv9.onrender.com/api/health` trả `{"status":"ok"}`. Nếu request từ frontend trả 403 hoặc lỗi CORS, kiểm tra lại `CORS_ORIGINS` trên backend.
 
 ---
 
