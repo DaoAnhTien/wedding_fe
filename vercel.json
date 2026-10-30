@@ -4,15 +4,17 @@
       "includeFiles": "dist/index.html"
     }
   },
-  "rewrites": [
+  "routes": [
     {
-      "source": "/",
-      "has": [{ "type": "query", "key": "guest" }],
-      "destination": "/api/invitation"
+      "src": "/",
+      "dest": "/api/invitation"
     },
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
