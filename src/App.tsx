@@ -23,6 +23,7 @@ const App = () => (
       >
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/moi/:guest" element={<Index />} />
           <Route path="/admin/wishes" element={<WishesAdmin />} />
           <Route path="/admin/invitations" element={<InvitationsAdmin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

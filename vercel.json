@@ -6,6 +6,10 @@
   },
   "routes": [
     {
+      "src": "/moi/([^/]+)",
+      "dest": "/api/invitation?guest=$1&invitationPath=1"
+    },
+    {
       "src": "/",
       "dest": "/api/invitation"
     },

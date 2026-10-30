@@ -14,11 +14,12 @@ import { RSVPForm } from "@/components/RSVPForm";
 
 import { useEffect, useState, useRef } from "react";
 import musicUrl from "@/assets/audio.mp3";
-import { useSearchParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 
 const Index = () => {
   const [searchParams] = useSearchParams();
-  const guestName = (searchParams.get("guest") || "").trim().slice(0, 120);
+  const { guest } = useParams<{ guest: string }>();
+  const guestName = (guest ?? searchParams.get("guest") ?? "").trim().slice(0, 120);
   const [isEnvelopeOpen, setIsEnvelopeOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);

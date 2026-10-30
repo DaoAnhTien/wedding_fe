@@ -8,8 +8,7 @@ const InvitationsAdmin = () => {
   const guests = [...new Set(names.split(/\r?\n/).map((name) => name.trim()).filter(Boolean))];
   const tooLong = guests.some((name) => name.length > 120);
   const invitations = guests.map((name) => {
-    const url = new URL(import.meta.env.BASE_URL, window.location.origin);
-    url.searchParams.set("guest", name);
+    const url = new URL(`${import.meta.env.BASE_URL}moi/${encodeURIComponent(name)}`, window.location.origin);
     return { name, url: url.href };
   });
 

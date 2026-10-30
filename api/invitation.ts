@@ -11,10 +11,16 @@ export default async function handler(request: IncomingMessage, response: Server
   const incoming = new URL(request.url || "/", origin);
   const invitation = new URL("/", origin);
   const guest = incoming.searchParams.get("guest");
-  if (guest !== null) invitation.searchParams.set("guest", guest);
+  if (guest !== null) {
+    if (incoming.searchParams.get("invitationPath") === "1") {
+      invitation.pathname = `/moi/${encodeURIComponent(guest)}`;
+    } else {
+      invitation.searchParams.set("guest", guest);
+    }
+  }
 
   // Social crawlers read the initial HTML without running React.
-  // Keep the guest query in the preview's destination instead of the homepage.
+  // Keep each invitation's destination instead of identifying it as the homepage.
   const template = await readFile(join(process.cwd(), "dist", "index.html"), "utf8");
   const html = template.replace(
     /(<meta\s+property="og:url"\s+content=")[^"]*("\s*\/?\s*>)/,
