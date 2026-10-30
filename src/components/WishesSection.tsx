@@ -22,7 +22,7 @@ const suggestions = [
   {
     label: "Hành trình mới",
     message:
-      "Chúc mừng ngày vui của Văn Sáng & Thuỳ Dung! Mong tổ ấm nhỏ luôn ngập tràn hạnh phúc và những điều ngọt ngào.",
+      "Chúc mừng ngày vui của Hữu Tân & Thuỳ Trang! Mong tổ ấm nhỏ luôn ngập tràn hạnh phúc và những điều ngọt ngào.",
   },
 ];
 const pageSize = 12;
@@ -253,7 +253,7 @@ const WishesSection = () => {
                     <Heart className="mx-auto mb-3 h-8 w-8 text-[#c59e4e]" />
                     <h4 className="font-display text-2xl text-[#16382e]">Trang sổ đầu tiên đang chờ bạn</h4>
                     <p className="mx-auto mt-2 max-w-xs text-xs text-muted-foreground leading-relaxed">
-                      Hãy gửi lời chúc đầu tiên để mở đầu cuốn sổ kỷ niệm của Văn Sáng &amp; Thuỳ Dung nhé!
+                      Hãy gửi lời chúc đầu tiên để mở đầu cuốn sổ kỷ niệm của Hữu Tân &amp; Thuỳ Trang nhé!
                     </p>
                   </div>
                 ) : (

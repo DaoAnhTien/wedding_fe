@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import Reveal from "./Reveal";
 import { SongHyEmblem, GoldDivider } from "./SongHyEmblem";
 
@@ -235,7 +235,7 @@ const GallerySection = () => {
 
           {/* 3D Coverflow Stage */}
           <div
-            className="relative w-full h-[750px] sm:h-[880px] md:h-[1000px] flex items-center justify-center overflow-visible"
+            className="relative w-full h-[500px] sm:h-[587px] md:h-[667px] flex items-center justify-center overflow-visible"
             style={{ perspective: 1200 }}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
@@ -310,7 +310,7 @@ const GallerySection = () => {
                 return (
                   <motion.div
                     key={index}
-                    className="absolute cursor-pointer w-[min(300px,calc(100vw-48px))] sm:w-[380px] md:w-[440px] h-[640px] sm:h-[747px] md:h-[854px]"
+                    className="absolute cursor-pointer w-[min(300px,calc(100vw-48px))] sm:w-[380px] md:w-[440px] h-[427px] sm:h-[498px] md:h-[569px]"
                     animate={{
                       x: xTranslate,
                       scale,
@@ -352,14 +352,6 @@ const GallerySection = () => {
                       {isCenter && (
                         <>
                           <div className="absolute inset-0 bg-gradient-to-t from-[#16382e]/85 via-transparent to-transparent opacity-80" />
-
-                          {/* Zoom Button on Center Card */}
-                          <div className="absolute top-3.5 right-3.5 px-3 py-1.5 rounded-full bg-[#16382e]/80 backdrop-blur-sm border border-[#d4af37]/60 flex items-center gap-1.5 text-[#e6ca85] shadow-md hover:scale-105 transition-transform">
-                            <ZoomIn className="w-3.5 h-3.5" />
-                            <span className="font-serif text-[11px] uppercase tracking-wider font-semibold">
-                              Xem lớn
-                            </span>
-                          </div>
 
                           <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 text-center">
                             <p className="font-display text-lg sm:text-xl text-[#fbf8f1] font-normal drop-shadow-md">

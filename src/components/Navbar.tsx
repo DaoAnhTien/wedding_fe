@@ -54,9 +54,9 @@ const Navbar = ({ onReopenEnvelope }: NavbarProps) => {
             }}
             className="flex items-center gap-2 font-display text-lg md:text-xl font-medium tracking-wider text-[#fbf8f1] hover:text-[#e6ca85] transition-colors"
           >
-            <span>Văn Sáng</span>
+            <span>Hữu Tân</span>
             <span className="text-[#d4af37] text-xl font-bold font-serif mx-0.5">囍</span>
-            <span>Thuỳ Dung</span>
+            <span>Thuỳ Trang</span>
           </a>
 
           {/* Desktop Navigation */}

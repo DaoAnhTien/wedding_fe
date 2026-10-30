@@ -17,6 +17,7 @@ export default {
       fontFamily: {
         display: ["Cormorant Garamond", "serif"],
         body: ["Quicksand", "sans-serif"],
+        script: ["'Alex Brush'", "'Great Vibes'", "'Dancing Script'", "cursive"],
       },
       colors: {
         border: "hsl(var(--border))",

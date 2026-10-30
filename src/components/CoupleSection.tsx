@@ -145,7 +145,7 @@ const CoupleSection = () => {
               <div className="md:w-1/2 aspect-[3/4] md:aspect-auto md:min-h-[500px] overflow-hidden">
                 <img
                   src={groomImage}
-                  alt="Chú rể - Văn Sáng"
+                  alt="Chú rể - Hữu Tân"
                   className="w-full h-full object-cover object-[center_top] hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -161,7 +161,7 @@ const CoupleSection = () => {
                 </p>
 
                 <h3 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-1">
-                  Văn Sáng
+                  Hữu Tân
                 </h3>
 
                 <div className="w-16 h-0.5 bg-primary/50 my-5" />
@@ -200,7 +200,7 @@ const CoupleSection = () => {
                 </p>
 
                 <h3 className="font-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-1">
-                  Thuỳ Dung
+                  Thuỳ Trang
                 </h3>
 
                 <div className="w-16 h-0.5 bg-wedding-rose/50 my-5" />
@@ -225,7 +225,7 @@ const CoupleSection = () => {
               <div className="md:w-1/2 aspect-[3/4] md:aspect-auto md:min-h-[500px] overflow-hidden">
                 <img
                   src={brideImage}
-                  alt="Cô dâu - Thuỳ Dung"
+                  alt="Cô dâu - Thuỳ Trang"
                   className="w-full h-full object-cover object-[center_top] hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -237,7 +237,7 @@ const CoupleSection = () => {
         <Reveal animation="fade-up" delay={300}>
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="font-display text-3xl md:text-4xl text-foreground mb-6">
-              Văn Sáng &amp; Thuỳ Dung
+              Hữu Tân &amp; Thuỳ Trang
             </h2>
 
             <p className="font-body text-muted-foreground leading-relaxed mb-6">
@@ -248,7 +248,7 @@ const CoupleSection = () => {
             </p>
 
             <p className="font-display text-xl text-primary italic">
-              Văn Sáng &amp; Thuỳ Dung
+              Hữu Tân &amp; Thuỳ Trang
             </p>
           </div>
         </Reveal>

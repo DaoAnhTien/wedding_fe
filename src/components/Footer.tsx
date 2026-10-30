@@ -16,7 +16,7 @@ const Footer = ({ onReopenEnvelope }: FooterProps) => {
         </div>
 
         <h3 className="font-display text-2xl md:text-3xl text-[#fbf8f1] font-normal mb-2">
-          Văn Sáng &amp; Thuỳ Dung
+          Hữu Tân &amp; Thuỳ Trang
         </h3>
 
         <div className="h-[1px] w-20 bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mx-auto my-3" />

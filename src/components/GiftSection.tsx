@@ -12,17 +12,17 @@ const bankAccounts = [
 
   {
     title: "Mừng cưới đến chú rể",
-    bank: "vietcombank",
-    accountName: "TRAN VAN SANG",
-    accountNumber: "1057868377",
+    bank: "MB Bank",
+    accountName: "NGUYEN HUU TAN",
+    accountNumber: "2307200186",
     role: "groom",
     qrCode: vcb2,
   },
   {
     title: "Mừng cưới đến cô dâu",
-    bank: "vietcombank",
-    accountName: "VO THI THUY DUNG",
-    accountNumber: "1051234482",
+    bank: "ACB",
+    accountName: "DANG THI TRANG",
+    accountNumber: "20258791",
     role: "bride",
     qrCode: vcb1,
   },

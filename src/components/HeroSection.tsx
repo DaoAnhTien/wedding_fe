@@ -46,7 +46,7 @@ const HeroSection = () => {
         </p>
 
         <h1 className="font-display text-4xl md:text-5xl lg:text-5xl font-light mb-4 text-shadow-lg animate-fade-in" style={{ animationDelay: "0.4s" }}>
-          Văn Sáng <span className="font-normal">&</span> Thuỳ Dung
+          Hữu Tân <span className="font-normal">&</span> Thuỳ Trang
         </h1>
 
         <div className="w-24 h-0.5 bg-primary-foreground/60 mx-auto mb-6 animate-fade-in" style={{ animationDelay: "0.6s" }} />

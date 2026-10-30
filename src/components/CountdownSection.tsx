@@ -19,7 +19,7 @@ const CountdownSection = () => {
   });
 
   useEffect(() => {
-    const weddingDate = new Date("2026-11-14T11:00:00").getTime();
+    const weddingDate = new Date("2026-11-14T10:00:00").getTime();
 
     const updateCountdown = () => {
       const now = new Date().getTime();
@@ -89,7 +89,7 @@ const CountdownSection = () => {
 
         <Reveal animation="fade-up" delay={250}>
           <h3 className="font-display text-3xl md:text-4xl lg:text-5xl mb-4 drop-shadow-[0_2px_10px_rgba(0,0,0,0.85)] font-normal text-white">
-            Văn Sáng &amp; Thuỳ Dung
+            Hữu Tân &amp; Thuỳ Trang
           </h3>
         </Reveal>
 

@@ -14,8 +14,11 @@ import { RSVPForm } from "@/components/RSVPForm";
 
 import { useEffect, useState, useRef } from "react";
 import musicUrl from "@/assets/audio.mp3";
+import { useSearchParams } from "react-router-dom";
 
 const Index = () => {
+  const [searchParams] = useSearchParams();
+  const guestName = (searchParams.get("guest") || "").trim().slice(0, 120);
   const [isEnvelopeOpen, setIsEnvelopeOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -78,7 +81,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-[#c5a059]/30 selection:text-[#16382e]">
       {/* Interactive Envelope Opening Experience */}
-      <InvitationEnvelope isOpen={isEnvelopeOpen} onOpen={handleOpenEnvelope} />
+      <InvitationEnvelope isOpen={isEnvelopeOpen} onOpen={handleOpenEnvelope} guestName={guestName} />
 
       <MusicPlayer isPlaying={isPlaying} toggleMusic={toggleMusic} />
 
@@ -87,6 +90,13 @@ const Index = () => {
 
       <main>
         <HeroSection />
+        {guestName && (
+          <section className="px-6 py-12 text-center bg-secondary/40">
+            <p className="font-body text-sm uppercase tracking-widest text-muted-foreground">Trân trọng kính mời</p>
+            <h2 className="mt-3 font-display text-3xl text-primary break-words [overflow-wrap:anywhere]">{guestName}</h2>
+            <p className="mt-3 font-body text-muted-foreground">Sự hiện diện của bạn là niềm hạnh phúc của chúng tôi.</p>
+          </section>
+        )}
         <CoupleSection />
         <CountdownSection />
         <GallerySection />
